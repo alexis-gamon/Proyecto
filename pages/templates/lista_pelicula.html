@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<a href="{% url 'pelicula_nueva' %}">  <button type="button" class="btn btn-info">PeliculaNueva</button>    </a >
+    
+{% for pelicula in lista_pelicula %}
+
+   
+  <div class="card" style="width: 18rem;">
+    <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png" class="card-img-top" alt="...">
+   
+    <div class="card-body">
+      
+      <h2 class="card-title">Nombre:{{ pelicula.Nombre}}</h2>
+      <h3><p class="card-text">{{ pelicula.Descripcion}}</p> </31>
+      <p class="card-text"><small class="text-muted"> autor:{{ pelicula.Creador}}</small></p>
+     </div>
+    <ul class="list-group list-group-flush">
+   
+    
+    </ul>
+    <div class="card-body">
+      <a href="{% url 'pelicula_detalle' pelicula.pk %}"> <button type="button" class="btn btn-info">Detalle</button>    </a>
+    
+    </div>
+  </div>
+
+  
+  
+
+  {% endfor %}
+{% endblock %}

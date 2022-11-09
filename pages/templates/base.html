@@ -1,0 +1,55 @@
+{% load static %}
+
+<header>
+    
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+     
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="{% static 'js/ejemplo.js' %}"></script>
+
+
+
+</header>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+       <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+
+          <a class="nav-link" href="{% url 'pelicula' %}">Pelicula</a>
+
+          <a class="nav-link active" aria-current="page" href="{%url 'login' %}">Login</a>
+          <a class="nav-link" href="{%url 'logout' %}">Logout</a>
+          <a class="nav-link" href="{%url 'signup' %}">Registrar</a>
+          <a class="nav-link" href="{%url 'password_reset' %}">Cambiar Contraseña</a>
+           
+    
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+{% if user.is_authenticated %}
+<p>Bienvenido {{ user.username }}</p>
+{% else %}
+   
+<p>Es necesario que realice un login primero </p>
+{% endif %}
+<div class="container">
+{% block content %}
+{% endblock content %}
+</div>
+
+</body>
+</html>

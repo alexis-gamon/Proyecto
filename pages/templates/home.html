@@ -1,0 +1,48 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Muy Dificil</title>
+</head>
+<body>
+    
+
+  <script>
+    document.write('La fecha de hoy es:' + retornarFecha());
+    document.write('<br>');
+    document.write('La hora es:' + retornarHora());
+</script>
+
+<script>
+  alert("Bienvenido usuario: " + alert());
+</script>
+
+    <center>
+        <div class="card" style="width: 28rem;">
+   <!--
+      <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png" class="card-img-top" alt="...">
+
+   -->
+    <img src="{% static 'images/a.jpg' %}" class="card-img-top" alt="...">
+
+
+    <div class="card-body">
+      <h5 class="card-title"><h1> Gamón  </h1></h5>
+      <p class="card-text">Desarrollo de pila completa: se refiere al desarrollo de las partes de la aplicación web tanto en el front-end (lado del cliente) como en el back-end (lado del servidor).
+
+        Desarrolladores web de pila completa: los desarrolladores web de pila completa tienen la capacidad de diseñar sitios web y aplicaciones web completas. Trabajan en el frontend, backend, base de datos y depuración de aplicaciones web o sitios web..</p>
+      
+    </div>
+  </div>
+    </center>
+  
+    {% endblock content %}
+    
+    

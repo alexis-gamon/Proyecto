@@ -1,0 +1,17 @@
+<h1 >
+    <h1 style="color: blueviolet;">
+
+    <center>CREAR PELICULA NUEVA </center>
+
+</h1>
+
+{% extends 'base.html' %}
+{% block content %}
+
+<form action=""method="post">{% csrf_token %}
+     {{ form.as_p}}
+
+   <br>
+    <input type="submit" value="Guardar" /> 
+</form>
+{% endblock content %}

@@ -1,0 +1,24 @@
+<h1> <h1 style="color: blueviolet;">
+
+    <center> PELICULA </center>
+    </h1>
+    
+    {% extends 'base.html' %}
+    
+    {% block content %}
+    
+      <a href="{% url 'pelicula_nueva' %}">  <button type="button" class="btn btn-info">PeliculaNueva</button>    </a >
+    <br>  
+    
+    
+    
+    {% for pelicula in Todas_peliculas %}
+    
+    <a href="{% url 'pelicula_detalle' pelicula.pk %}" >{{pelicula}}  </a>
+    <p>{{pelicula.Nombre}}</p>
+
+
+    {% endfor %}
+    
+    
+    {% endblock content %}
