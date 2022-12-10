@@ -1,10 +1,10 @@
-<h1 style="color: rgb(117, 59, 172);">
-    <center>ELIMINAR PELICULA   </center>
 
-</h1>
 {% extends 'base.html' %}
 {% block content %}
+<h3 style="color: rgb(117, 59, 172);">
+    <center>ELIMINAR PELICULA   </center>
 
+</h3>
 {% if user.is_superuser %}
 <form action=""method="post">{% csrf_token %}
    <!-- {{ form.as_p}}-->

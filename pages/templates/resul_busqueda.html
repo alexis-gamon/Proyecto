@@ -1,0 +1,40 @@
+<h1> <h1 style="color: blueviolet;">
+
+    <center> PELICULA </center>
+    </h1>
+    
+    {% extends 'base.html' %}
+    
+    {% block content %}
+    
+      <a href="{% url 'pelicula_nueva' %}">  <button type="button" class="btn btn-info">PeliculaNueva</button>    </a >
+    <br>  
+     
+    
+    
+
+
+    {% if not perms.pages.suscriptor %}
+    <!--<h1>
+      Pon un mensaje el que quieras
+    </h1>
+  -->
+  <a class="nav-link" href="{%url 'orders' %}">Pago</a> 
+    {% else %}
+  
+    {% endif %}
+
+
+    {% for pelicula in Todas_PeliculasBusquedas %}
+    
+    <a href="{% url 'pelicula_detalle' pelicula.pk %}" >{{pelicula}}  </a>
+    {% if pelicula.portada %}
+    <img src="{{ pelicula.portada.url }}" class="card-img-top" alt="...">
+    {% else %}
+    
+    <p>{{pelicula.Nombre}}</p>
+   {% endif %}
+    {% endfor %}
+    
+    
+    {% endblock content %}

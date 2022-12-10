@@ -1,10 +1,10 @@
-<h1 style="color: blueviolet;">
-    <center>EDITAR PELICULA </center>
 
-</h1>
 {% extends 'base.html' %}
 {% block content %}
+<h3 style="color: blueviolet;">
+    <center>EDITAR PELICULA </center>
 
+</h3>
 <form action=""method="post">{% csrf_token %}
      {{ form.as_p}}
     

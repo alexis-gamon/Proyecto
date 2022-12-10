@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Pagina de cobro</h1>
+<p>Pagar Suscripcion de $100</p>
+
+<form action="{% url 'charge' %}" method="post">{% csrf_token %}
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="{{ stripe_key }}"
+    data-description="Pago de Alquiler"
+    data-amount="10000"
+    data-locale="auto">
+</script>
+</form>
+{% endblock content %}
+

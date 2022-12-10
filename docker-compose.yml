@@ -14,6 +14,12 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_51M9HPwGy1L8TKRg1P9pmkCTwTRjQAzSdX64TvlCDMhbzlaCpWwOeGe5Kv0qyr71V4vqFQoKt70htl9cYxS95IMhs00aUCajY5X
+      - STRIPE_TEST_SECRET_KEY=sk_test_51M9HPwGy1L8TKRg1xbhM4J8ihoMhif8h5hmluvk17gCs3jVQLvKsGA1a3OAFZdB6sc3Zx2JpmJwdRG62rE3bn8g200zcnyXYBR
     ports:
       - "8000:8000"
     depends_on:

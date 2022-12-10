@@ -1,13 +1,13 @@
-<h1 >
+
+
+{% extends 'base.html' %}
+{% block content %}
+<h3 >
     <h1 style="color: blueviolet;">
 
     <center>CREAR PELICULA NUEVA </center>
 
-</h1>
-
-{% extends 'base.html' %}
-{% block content %}
-
+</h3>
 <form action=""method="post">{% csrf_token %}
      {{ form.as_p}}
 

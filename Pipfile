@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 psycopg2-binary = "*"
 django-crispy-forms = "*"
+django-allauth = "==0.43.0"
+pillow = "*"
+stripe = "*"
 
 [dev-packages]
 

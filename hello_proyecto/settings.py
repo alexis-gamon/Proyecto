@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'crispy_forms',
+    'crispy_forms',#Diseño
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +42,15 @@ INSTALLED_APPS = [
 
     'user.apps.UserConfig',
     'pages.apps.PagesConfig',
+    'orders.apps.OrdersConfig',
+    
+    'django.contrib.sites',
+    'allauth', # new
+    'allauth.account', # new
+    'allauth.socialaccount', # new
+    'allauth.socialaccount.providers.github', # new
+   
+    
 ]
 
 MIDDLEWARE = [
@@ -60,6 +69,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,9 +97,9 @@ WSGI_APPLICATION = 'hello_proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',#os.environ.get('POSTGRES_NAME'),
-        'USER': 'postgres',#os.environ.get('POSTGRES_USER'),
-        'PASSWORD': 'postgres',#os.environ.get('POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': 'db',
         'PORT': 5432,
     }
@@ -118,8 +128,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+#modificar time zone para que tome la zona horaria de mexico
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
@@ -130,9 +141,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+
 ###es es para agregar archivos estaticos imagenes
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]#local
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')# productivo
+
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -142,7 +157,14 @@ STATICFILES_FINDERS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
 
+SITE_ID = 1
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
 AUTH_USER_MODEL = 'user.CustomUser'#crea un usuario personalizado
@@ -153,6 +175,8 @@ LOGOUT_REDIRECT_URL = 'login'
 
 CRISPY_TAMPLATE_PACK = 'bootstrap4'
 
+ACCOUNT_LOGOUTL_REDIRECT = 'home'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -161,3 +185,20 @@ EMAIL_HOST_USER = 'gamonalexis22@gmail.com'#AQUI SE COLOCA EL URL QUE NOS MOSTRO
 EMAIL_HOST_PASSWORD = 'fdbzlgdkmzexjysq'
 EMAIL_port = '25'
 EMAIL_USE_TLS = True
+
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+
+DEFAULT_FROM_EMAIL = 'gamonalexis22@gmail.com'
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+STRIPE_TEST_PUBLISHABLE_KEY=os.environ.get('STRIPE_TEST_PUBLISHABLE_KEY')
+STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')

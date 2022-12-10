@@ -9,15 +9,35 @@
     
       <a href="{% url 'pelicula_nueva' %}">  <button type="button" class="btn btn-info">PeliculaNueva</button>    </a >
     <br>  
+     
     
     
-    
+
+
+    {% if not perms.pages.suscriptor %}
+    <!--<h1>
+      Pon un mensaje el que quieras
+    </h1>
+  -->
+  <a class="nav-link" href="{%url 'orders' %}">Pago</a> 
+    {% else %}
+  
+    {% endif %}
+
+    <form class="form-inline mt-2 mt-md-0" action="{% url 'resul_busqueda' %}" method="get">
+      <input name="q" class="form-control mr-sm-2" type="text" placeholder="Buscar"
+      aria-label="Buscar"> </form>
+
+
     {% for pelicula in Todas_peliculas %}
     
     <a href="{% url 'pelicula_detalle' pelicula.pk %}" >{{pelicula}}  </a>
+    {% if pelicula.portada %}
+    <img src="{{ pelicula.portada.url }}" class="card-img-top" alt="...">
+    {% else %}
+    
     <p>{{pelicula.Nombre}}</p>
-
-
+   {% endif %}
     {% endfor %}
     
     

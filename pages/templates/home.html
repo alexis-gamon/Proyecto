@@ -9,21 +9,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algo Muy Dificil</title>
+    <title>Practica</title>
 </head>
 <body>
     
-
+<!--
   <script>
     document.write('La fecha de hoy es:' + retornarFecha());
     document.write('<br>');
     document.write('La hora es:' + retornarHora());
 </script>
+-->
+  
 
 <script>
-  alert("Bienvenido usuario: " + alert());
+  alert("Bienvenido usuario: " );
 </script>
 
+<script type="text/javascript"> 
+  var a = "{{someDjangoVariable}}";
+</script>
+
+<html>
+<P align="right">
+  <body></body>
+  <script language="javascript">
+  document.write("Resolución de pantalla: ");
+  document.write(screen.width + "*" + screen.height);
+  document.write("<br>");
+  document.write("Area visible disponible: ");
+  document.write(screen.availWidth + "*" + screen.availHeight);
+  document.write("<br>");
+  document.write("Resolución de color: ");
+  document.write(screen.colorDepth);
+  document.write("<br>");
+  </script>
+  </body>
+</p>
+  
+  <br>
+  
+</html>
+
+<html>
+<head></head>
+<body>
+ 
+<script type="text/javascript">
+  function pintar(col)
+  {
+    document.bgColor=col;
+  }
+</script>
+ 
+<a href="pagina1.html" onMouseOver="pintar('#ff0000')" onMouseOut="pintar('#ffffff')">Rojo</a>
+-
+<a href="pagina1.html" onMouseOver="pintar('#00ff00')" onMouseOut="pintar('#ffffff')">Verde</a>
+-
+<a href="pagina1.html" onMouseOver="pintar('#0000ff')" onMouseOut="pintar('#ffffff')">Azul</a>
+</body>
+</html>
+
+<html>
+<head></head>
+<body>
+<script type="text/javascript">
+  function pintar(objeto,col)
+  {
+    objeto.bgColor=col;
+  }
+</script>
+ 
+<table border="1">
+<tr>
+<td onMouseOver="pintar(this,'#ff0000')" onMouseOut="pintar(this,'#ffffff')">rojo</td>
+<td onMouseOver="pintar(this,'#00ff00')" onMouseOut="pintar(this,'#ffffff')">verde</td>
+<td onMouseOver="pintar(this,'#0000ff')" onMouseOut="pintar(this,'#ffffff')">azul</td>
+</tr>
+</table>
+</body>
+</html>
     <center>
         <div class="card" style="width: 28rem;">
    <!--
@@ -31,7 +96,7 @@
 
    -->
     <img src="{% static 'images/a.jpg' %}" class="card-img-top" alt="...">
-
+    
 
     <div class="card-body">
       <h5 class="card-title"><h1> Gamón  </h1></h5>
